@@ -1,5 +1,3 @@
-"use client";
-
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -16,7 +14,6 @@ const navigation = [
   { name: "Events", href: "/events" },
   { name: "Speakers", href: "/speakers" },
   { name: "Team", href: "/team" },
-  // { name: "Sponsors", href: "/sponsors" },
   { name: "Contact", href: "/explore/#contact" },
 ];
 
@@ -49,10 +46,12 @@ const Navbar = () => {
           {navigation.map((item, idx) => (
             <a
               key={idx}
-              className="text-xs lg:text-lg uppercase text-white hover:text-gray-300"
+              className="text-xs lg:text-lg uppercase text-white group"
               href={item.href}
             >
-              {item.name}
+              <span className="transition-all duration-500 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-orange-300">
+                {item.name}
+              </span>
             </a>
           ))}
         </Popover.Group>
@@ -93,10 +92,12 @@ const Navbar = () => {
                     <Popover.Button
                       as="a"
                       key={idx}
-                      className="text-md uppercase text-white hover:text-gray-700"
+                      className="text-md uppercase text-white group"
                       href={item.href}
                     >
-                      {item.name}
+                      <span className="transition-all duration-500 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-orange-300">
+                        {item.name}
+                      </span>
                     </Popover.Button>
                   ))}
                 </nav>
